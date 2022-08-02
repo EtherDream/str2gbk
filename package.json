@@ -1,6 +1,6 @@
 {
   "name": "str2gbk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JS string to GBK encoding ultra-lite implementation",
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
     "string"
   ],
   "type": "module",
+  "main": "index.js",
   "files": [
     "index.*"
   ],
