@@ -1,0 +1,26 @@
+{
+  "name": "str2gbk",
+  "version": "0.0.1",
+  "description": "JS string to GBK encoding ultra-lite implementation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EtherDream/str2gbk.git"
+  },
+  "author": "EtherDream",
+  "license": "MIT",
+  "keywords": [
+    "gbk",
+    "gb2312",
+    "encoding",
+    "encode",
+    "charset",
+    "string"
+  ],
+  "type": "module",
+  "files": [
+    "index.*"
+  ],
+  "scripts": {
+    "test": "node tests/test.js"
+  }
+}
