@@ -2,6 +2,9 @@
 
 JS 字符串转 GBK 编码超轻量实现。代码压缩后不到 1KB，并且性能非常高。
 
+[![NPM Version](https://badgen.net/npm/v/str2gbk)](https://npmjs.org/package/str2gbk)
+[![NPM Install Size](https://badgen.net/packagephobia/install/str2gbk)](https://packagephobia.com/result?p=str2gbk)
+
 # Install
 
 ```bash
