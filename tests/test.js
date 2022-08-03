@@ -37,6 +37,13 @@ cmpBuf(
 )
 
 cmpBuf(
+  str2gbk('123©456©', {
+    onError: () => 65535
+  }),
+  [49, 50, 51,   0xff, 0xff,   52, 53, 54,  0xff, 0xff]
+)
+
+cmpBuf(
   str2gbk('123©456', {
     onError: () => -1
   }),

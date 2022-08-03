@@ -62,7 +62,7 @@ export default function(str, opt = {}) {
     const gbk = table[code]
 
     if (gbk !== 0xFFFF) {
-      buf[n++] = gbk & 0xFF
+      buf[n++] = gbk
       buf[n++] = gbk >> 8
     } else if (code === 8364) {
       // 8364 == '€'.charCodeAt(0)
@@ -73,7 +73,12 @@ export default function(str, opt = {}) {
       if (ret === -1) {
         break
       }
-      buf[n++] = ret
+      if (ret > 0xFF) {
+        buf[n++] = ret
+        buf[n++] = ret >> 8
+      } else {
+        buf[n++] = ret
+      }
     }
   }
   return buf.subarray(0, n)
