@@ -11,6 +11,8 @@ JS 字符串转 GBK 编码超轻量实现。代码压缩后不到 1KB，并且�
 npm i str2gbk
 ```
 
+该项目使用 TextDecoder API，因此 IE 不支持。[查看兼容性](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder#browser_compatibility)
+
 # Usage
 
 ```js
@@ -34,7 +36,7 @@ str2gbk(str, opt?)
 
 ## opt.onError
 
-可选。如果 JS 字符串中出现 GBK 不支持的字符，则触发该回调。
+可选。输入 JS 字符串中每当遇到 GBK 不支持的字符时，触发该回调。
 
 如果未提供回调，默认使用 `63`（即 `?` 字符）代替不支持的字符。例如：
 
