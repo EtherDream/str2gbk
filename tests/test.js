@@ -43,10 +43,15 @@ cmpBuf(
   [49, 50, 51]
 )
 
-cmpBuf(
-  str2gbk('😂'),
-  [63, 63]
-)
+let invalidChar
+
+str2gbk('123©456©', {
+  onError: (index, input) => {
+    invalidChar = input[index]
+  }
+})
+console.assert(invalidChar === '©')
+
 
 const shouldBuffer = str2gbk('赢', {
   onAlloc: (len) => Buffer.allocUnsafe(len)

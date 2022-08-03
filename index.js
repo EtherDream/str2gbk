@@ -69,7 +69,7 @@ export default function(str, opt = {}) {
       // Code Page 936 has a single-byte euro sign at 0x80
       buf[n++] = 0x80
     } else {
-      const ret = onError(str, i)
+      const ret = onError(i, str)
       if (ret === -1) {
         break
       }
