@@ -38,9 +38,9 @@ cmpBuf(
 
 cmpBuf(
   str2gbk('123©456©', {
-    onError: () => 65535
+    onError: () => 0xC1A1
   }),
-  [49, 50, 51,   0xff, 0xff,   52, 53, 54,  0xff, 0xff]
+  [49, 50, 51,   0xA1, 0xC1,   52, 53, 54,  0xA1, 0xC1]
 )
 
 cmpBuf(
@@ -50,14 +50,19 @@ cmpBuf(
   [49, 50, 51]
 )
 
-let invalidChar
+const invalidChars = []
+const invalidStr = '123©456©'
 
-str2gbk('123©456©', {
+str2gbk(invalidStr, {
   onError: (index, input) => {
-    invalidChar = input[index]
+    invalidChars.push({index, input})
   }
 })
-console.assert(invalidChar === '©')
+console.assert(invalidChars.length === 2)
+console.assert(invalidChars[0].index === 3)
+console.assert(invalidChars[0].input === invalidStr)
+console.assert(invalidChars[1].index === 7)
+console.assert(invalidChars[1].input === invalidStr)
 
 
 const shouldBuffer = str2gbk('赢', {
